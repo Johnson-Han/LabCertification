@@ -80,7 +80,7 @@ router.get('/', function(req, res, next) {
 // 获取初步设计文件目录视图数据
 router.get('/certification', function(req, res, next) {
   process.env.TZ = "Asia/Shanghai";
-  sql ="select * from lab_certification";
+  sql ="select * from lab_certification order by index";
   pg1.query(sql, function (result) {
   res.jsonp(result.rows);
   // console.log(result.rows); 
