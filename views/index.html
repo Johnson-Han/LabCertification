@@ -481,6 +481,24 @@
                           },
                           "targets": 2
                       },
+                      {
+                          // 文件列表
+                          "render": function (data, type, row) {
+                              var i = 0;
+                              var content = '<ul>';
+                              if (row[4] != null) {
+                                  row[4].forEach(function (e) {
+                                      var content_new = '<li>'  + e + '</li>';
+                                      i++;
+                                      content = content + content_new;
+                                  })
+                                  return content+"</ul>";
+                              }
+                              else return null;
+                          },
+                          "targets": 4
+                      },
+
                         {
                           // 文件列表
                           "render": function (data, type, row) {
@@ -488,7 +506,7 @@
                               var content='';
                               if( row[5] != null){
                                  row[5].forEach(function(e){
-                                    var content_new='<a href="' + row[6][i] + '" >'+i+':'+ e +'</a><br>'; 
+                                    var content_new='<a href="' + row[6][i] + '" >'+i+': '+ e.substring(14,40) +'</a><br>'; 
                                     i++;
                                      content=content+content_new;
                                  })
