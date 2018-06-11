@@ -363,7 +363,7 @@
                                                                 <input  name="id" id="id" required ng-model="inddd" ng-hide='true' required>
 
                                                                 <label>添加文件</label>
-                                                                <input type="file" name="file" id="file" required>
+                                                                <input type="file" name="file" id="file">
                                                             </div>
                                                             <div class="form-group">
                                                                  <label>评审要点</label>
@@ -371,7 +371,7 @@
                                                             </div>
                                                             <div class="form-group has-warning">
                                                                 <label>RT/B 214-2017</label>
-                                                                <textarea class="form-control" rows="3" name="RT" id="RT" data-validation-required-message="最新的解释"></textarea>
+                                                                <textarea class="form-control" rows="3" name="rt" id="rt" data-validation-required-message="最新的解释"></textarea>
                                                             </div>
                                                     <div class="pannel-body" style="padding:10px"></div>
                                                  </div>
@@ -437,7 +437,7 @@
         response.forEach(function(responseE){
         // console.log(response);
             
-        data.push([responseE.index,responseE.sec_lvl3, responseE.standard, responseE.note,responseE.RT,responseE.keys, responseE.files,responseE.files_path]);
+        data.push([responseE.index,responseE.sec_lvl3, responseE.standard, responseE.note,responseE.rt,responseE.keys, responseE.files,responseE.files_path]);
         i++;
        
         })

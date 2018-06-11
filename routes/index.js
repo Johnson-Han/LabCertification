@@ -39,10 +39,12 @@ router.post('/info_add', multer({ storage: storage3 }).single('file'), function 
 
   var upftime = newDate.toISOString();
 console.log(upftime)
+
+  if( req.file.filename != null){
   sql = 'insert into cer_files (cer_index,origin_name,filename,file_addr,upload_date) values (\'' + req.body.id + '\',\'' + req.file.originalname + '\',\''  + req.file.filename + '\',\''  + filepath+ '\',\'' + upftime + '\')';
   console.log(sql);
   pg2.query(sql, function (result) { });
-  
+  }
   
   if (req.body.key != null){ 
     sql1 = 'insert into cer_keys (cer_index,cer_key,upload_date)  values (\'' + req.body.id + '\',\'' + req.body.key + '\',\'' + upftime + '\')';
@@ -50,8 +52,8 @@ console.log(upftime)
     console.log(sql1);
     
   }
-  if (req.body.RT != null){
-    sql2 = 'insert into cer_RT (cer_index,cer_RT,upload_date)  values (\'' + req.body.id + '\',\'' + req.body.RT + '\',\'' + upftime + '\')';
+  if (req.body.rt != null){
+    sql2 = 'insert into cer_rt (cer_index,cer_rt,upload_date)  values (\'' + req.body.id + '\',\'' + req.body.rt + '\',\'' + upftime + '\')';
     pg2.query(sql2, function (result) { });
     console.log(sql2);
   }
