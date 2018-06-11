@@ -251,11 +251,12 @@
                                                     <th data-sort="index">序号</th>
                                                     <th data-sort="sec_lvl3">节</th>
                                                     <th data-sort="standard">资质认定准侧</th>
+                                                    <th data-sort="files_path">RT/B 214-2017</th>
                                                     <th data-sort="standard">释义</th>
                                                     <th data-sort="key">评审要点</th>
                                                     <th data-sort="files">文件列表</th>
                                                     <th data-sort="files_path">文件地址</th>
-                                                    <th data-sort="files_path">RT/B 214-2017</th>
+
                                                 </tr>
                                             </thead>
                                            
@@ -436,7 +437,7 @@
         response.forEach(function(responseE){
         // console.log(response);
             
-        data.push([responseE.index,responseE.sec_lvl3, responseE.standard, responseE.note, responseE.keys, responseE.files,responseE.files_path,responseE.RT]);
+        data.push([responseE.index,responseE.sec_lvl3, responseE.standard, responseE.note,responseE.RT,responseE.keys, responseE.files,responseE.files_path]);
         i++;
        
         })
@@ -507,19 +508,19 @@
                           "render": function (data, type, row) {
                               var i=0;
                               var content='';
-                              if( row[5] != null){
-                                 row[5].forEach(function(e){
-                                    var content_new='<a href="' + row[6][i] + '" >'+i+': '+ e.substring(14,40) +'</a><br>'; 
+                              if( row[6] != null){
+                                 row[6].forEach(function(e){
+                                    var content_new='<a href="' + row[7][i] + '" >'+i+': '+ e.substring(14,40) +'</a><br>'; 
                                     i++;
                                      content=content+content_new;
                                  })
                               return content;}
                               else return null;
                           },
-                          "targets": 5
+                          "targets": 6
                       },
                       { "visible": false, "targets": [3] },
-                      { "visible": false, "targets": [6] }
+                      { "visible": false, "targets": [7] }
                   ]
 
               });
