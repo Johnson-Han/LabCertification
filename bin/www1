@@ -3,7 +3,7 @@
 /**
  * Module dependencies.
  */
-
+console.log('bg');
 var app = require('../app');
 var debug = require('debug')('docs-web:server');
 var http = require('http');

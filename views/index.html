@@ -250,11 +250,12 @@
                                                     <!-- <th data-sort="sec_lvl1">章</th> -->
                                                     <th data-sort="index">序号</th>
                                                     <th data-sort="sec_lvl3">节</th>
-                                                    <th data-sort="standard">内容</th>
+                                                    <th data-sort="standard">资质认定准侧</th>
                                                     <th data-sort="standard">释义</th>
                                                     <th data-sort="key">评审要点</th>
                                                     <th data-sort="files">文件列表</th>
                                                     <th data-sort="files_path">文件地址</th>
+                                                    <th data-sort="files_path">RT/B 214-2017</th>
                                                 </tr>
                                             </thead>
                                            
@@ -426,7 +427,7 @@
       var app = angular.module('myApp', []);
       app.controller('myCtrl', function($scope, $http) {   
         $scope.inddd = 'qqq';
-      var myUrl_input = "http://10.10.12.251:3001/data/certification?callback=JSON_CALLBACK";
+      var myUrl_input = "http://10.10.33.10:3001/data/certification?callback=JSON_CALLBACK";
       $http.jsonp(myUrl_input).success(function(response){
         // $scope.input_file=response;
         var data = new Array();
@@ -435,7 +436,7 @@
         response.forEach(function(responseE){
         // console.log(response);
             
-        data.push([responseE.index,responseE.sec_lvl3, responseE.standard, responseE.note, responseE.keys, responseE.files,responseE.files_path]);
+        data.push([responseE.index,responseE.sec_lvl3, responseE.standard, responseE.note, responseE.keys, responseE.files,responseE.files_path,responseE.RT]);
         i++;
        
         })
@@ -477,8 +478,10 @@
                               // return data +' ('+ row[3]+')';
                               //   console.log(row);
 
-                              return '<a title="' + row[3] + '" >' + data.substring(0, 30) + '.... <button id=\'' + row[0] + '\' class="open-dialog pull-right" data-toggle="modal" data-target="#dialog" ><i class="fa fa-edit"></i></button></a>';
+                              return '<a title="' + row[3] + '" >' + data+ ' <br><button id=\'' + row[0] + '\' class="open-dialog pull-right" data-toggle="modal" data-target="#dialog" ><i class="fa fa-edit"></i></button></a>';
                           },
+
+                          width:"30%",
                           "targets": 2
                       },
                       {
