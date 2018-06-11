@@ -367,11 +367,11 @@
                                                             </div>
                                                             <div class="form-group">
                                                                  <label>评审要点</label>
-                                                                 <textarea class="form-control" rows="3" name="key" id="key" data-validation-required-message="工程联系单内容简介"></textarea>
+                                                                 <textarea class="form-control" rows="3" name="key" id="key" data-validation-required-message="评审的要点"></textarea>
                                                             </div>
                                                             <div class="form-group has-warning">
-                                                                <label>评审意见</label>
-                                                                <textarea class="form-control" rows="3" name="review" id="review" data-validation-required-message="工程联系单内容简介"></textarea>
+                                                                <label>RT/B 214-2017</label>
+                                                                <textarea class="form-control" rows="3" name="RT" id="RT" data-validation-required-message="最新的解释"></textarea>
                                                             </div>
                                                     <div class="pannel-body" style="padding:10px"></div>
                                                  </div>
@@ -502,7 +502,23 @@
                           },
                           "targets": 4
                       },
-
+                      {
+                          // 文件列表
+                          "render": function (data, type, row) {
+                              var i = 0;
+                              var content = '<ul>';
+                              if (row[5] != null) {
+                                  row[5].forEach(function (e) {
+                                      var content_new = '<li>' + e + '</li>';
+                                      i++;
+                                      content = content + content_new;
+                                  })
+                                  return content + "</ul>";
+                              }
+                              else return null;
+                          },
+                          "targets": 5
+                      },
                         {
                           // 文件列表
                           "render": function (data, type, row) {

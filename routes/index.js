@@ -41,10 +41,15 @@ router.post('/info_add', multer({ storage: storage3 }).single('file'), function 
 console.log(upftime)
   sql = 'insert into cer_files (cer_index,origin_name,filename,file_addr,upload_date) values (\'' + req.body.id + '\',\'' + req.file.originalname + '\',\''  + req.file.filename + '\',\''  + filepath+ '\',\'' + upftime + '\')';
   sql1 = 'insert into cer_keys (cer_index,cer_key,upload_date)  values (\'' + req.body.id + '\',\'' + req.body.key + '\',\'' + upftime + '\')';
+  sql2 = 'insert into cer_RT (cer_index,cer_RT,upload_date)  values (\'' + req.body.id + '\',\'' + req.body.RT + '\',\'' + upftime + '\')';
+
   console.log(sql);
   console.log(sql1);
+  console.log(sql2);
   pg2.query(sql, function (result) { });
   pg2.query(sql1, function (result) { });
+  pg2.query(sql2, function (result) { });
+
   Wurl = '/' ;
   res.redirect(Wurl);
 
