@@ -40,10 +40,7 @@ if (req.file != null){
   filename=req.file.filename;
 }
   var upftime = newDate.toISOString();
-  sql2 = 'insert into cer_rt (cer_index,cer_rt,upload_date)  values (\'' + req.body.id + '\',\'' + req.body.rt + '\',\'' + upftime + '\')';
-  console.log(sql2);
   console.log(upftime);
-  console.log(filename);
   if( filename != ''){
   sql = 'insert into cer_files (cer_index,origin_name,filename,file_addr,upload_date) values (\'' + req.body.id + '\',\'' + req.file.originalname + '\',\''  + req.file.filename + '\',\''  + filepath+ '\',\'' + upftime + '\')';
   console.log(sql);
