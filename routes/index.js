@@ -49,7 +49,7 @@ if (req.file != null){
   }
   
   console.log("2");
-  if (req.body.key != null){ 
+  if (req.body.key != ''){ 
     sql1 = 'insert into cer_keys (cer_index,cer_key,upload_date)  values (\'' + req.body.id + '\',\'' + req.body.key + '\',\'' + upftime + '\')';
     pg2.query(sql1, function (result) { });
     console.log(sql1);
@@ -58,7 +58,7 @@ if (req.file != null){
 
   console.log("3");
 
-  if (req.body.rt != null){
+  if (req.body.rt != ''){
     sql2 = 'insert into cer_rt (cer_index,cer_rt,upload_date)  values (\'' + req.body.id + '\',\'' + req.body.rt + '\',\'' + upftime + '\')';
     console.log(sql2);
     pg2.query(sql2, function (result) { });
