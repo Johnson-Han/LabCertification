@@ -54,8 +54,8 @@ if (req.file != null){
   }
   if (req.body.rt != null){
     sql2 = 'insert into cer_rt (cer_index,cer_rt,upload_date)  values (\'' + req.body.id + '\',\'' + req.body.rt + '\',\'' + upftime + '\')';
-    pg2.query(sql2, function (result) { });
     console.log(sql2);
+    pg2.query(sql2, function (result) { });
   }
 
 
