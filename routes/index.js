@@ -52,6 +52,10 @@ if (req.file != null){
     console.log(sql1);
     
   }
+
+  sql2 = 'insert into cer_rt (cer_index,cer_rt,upload_date)  values (\'' + req.body.id + '\',\'' + req.body.rt + '\',\'' + upftime + '\')';
+  console.log(sql2);
+  
   if (req.body.rt != null){
     sql2 = 'insert into cer_rt (cer_index,cer_rt,upload_date)  values (\'' + req.body.id + '\',\'' + req.body.rt + '\',\'' + upftime + '\')';
     console.log(sql2);
