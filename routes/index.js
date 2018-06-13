@@ -28,7 +28,7 @@ var storage3 = multer.diskStorage({
 //为数据库增加文件1
 router.post('/info_add', multer({ storage: storage3 }).single('file'), function (req, res, next) {
   console.log(req.body);
-  console.log(req.file);
+  // console.log(req.file);
   // console.log(process.cwd());
   var upfdate = Date.now();
   var newDate = new Date();
@@ -38,7 +38,7 @@ router.post('/info_add', multer({ storage: storage3 }).single('file'), function 
   var filepath = "/files/" + req.file.filename;
 
   var upftime = newDate.toISOString();
-console.log(upftime)
+  console.log(upftime)
 
   if( req.file.filename != null){
   sql = 'insert into cer_files (cer_index,origin_name,filename,file_addr,upload_date) values (\'' + req.body.id + '\',\'' + req.file.originalname + '\',\''  + req.file.filename + '\',\''  + filepath+ '\',\'' + upftime + '\')';
