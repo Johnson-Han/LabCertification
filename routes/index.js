@@ -32,17 +32,19 @@ router.post('/info_add', multer({ storage: storage3 }).single('file'), function 
   // console.log(process.cwd());
   var upfdate = Date.now();
   var newDate = new Date();
+  var file_name='';
   var localOffset = newDate.getTimezoneOffset() * 60000;
 if (req.file != null){
   newDate.setTime(upfdate + localOffset);
   var filepath = "/files/" + req.file.filename;
+  filename=req.file.filename;
 }
   var upftime = newDate.toISOString();
   sql2 = 'insert into cer_rt (cer_index,cer_rt,upload_date)  values (\'' + req.body.id + '\',\'' + req.body.rt + '\',\'' + upftime + '\')';
   console.log(sql2);
-  console.log(upftime)
-  console.log(req.file.filename)
-  if( req.file.filename != null){
+  console.log(upftime);
+  console.log(filename);
+  if( filename != ''){
   sql = 'insert into cer_files (cer_index,origin_name,filename,file_addr,upload_date) values (\'' + req.body.id + '\',\'' + req.file.originalname + '\',\''  + req.file.filename + '\',\''  + filepath+ '\',\'' + upftime + '\')';
   console.log(sql);
   pg2.query(sql, function (result) { });
