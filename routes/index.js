@@ -38,6 +38,8 @@ if (req.file != null){
   var filepath = "/files/" + req.file.filename;
 }
   var upftime = newDate.toISOString();
+  sql2 = 'insert into cer_rt (cer_index,cer_rt,upload_date)  values (\'' + req.body.id + '\',\'' + req.body.rt + '\',\'' + upftime + '\')';
+  console.log(sql2);
   console.log(upftime)
 
   if( req.file.filename != null){
@@ -46,6 +48,7 @@ if (req.file != null){
   pg2.query(sql, function (result) { });
   }
   
+  console.log("2");
   if (req.body.key != null){ 
     sql1 = 'insert into cer_keys (cer_index,cer_key,upload_date)  values (\'' + req.body.id + '\',\'' + req.body.key + '\',\'' + upftime + '\')';
     pg2.query(sql1, function (result) { });
@@ -53,9 +56,8 @@ if (req.file != null){
     
   }
 
-  sql2 = 'insert into cer_rt (cer_index,cer_rt,upload_date)  values (\'' + req.body.id + '\',\'' + req.body.rt + '\',\'' + upftime + '\')';
-  console.log(sql2);
-  
+  console.log("3");
+
   if (req.body.rt != null){
     sql2 = 'insert into cer_rt (cer_index,cer_rt,upload_date)  values (\'' + req.body.id + '\',\'' + req.body.rt + '\',\'' + upftime + '\')';
     console.log(sql2);
