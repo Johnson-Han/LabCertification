@@ -32,7 +32,7 @@ router.post('/info_add', multer({ storage: storage3 }).single('file'), function 
   // console.log(process.cwd());
   var upfdate = Date.now();
   var newDate = new Date();
-  var file_name='';
+  var filename='';
   var localOffset = newDate.getTimezoneOffset() * 60000;
 if (req.file != null){
   newDate.setTime(upfdate + localOffset);
