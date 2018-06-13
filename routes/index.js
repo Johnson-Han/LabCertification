@@ -34,14 +34,12 @@ router.post('/info_add', multer({ storage: storage3 }).single('file'), function 
   var newDate = new Date();
   var filename='';
   var localOffset = newDate.getTimezoneOffset() * 60000;
+
+  var upftime = newDate.toISOString();
+  console.log(upftime);
 if (req.file != null){
   newDate.setTime(upfdate + localOffset);
   var filepath = "/files/" + req.file.filename;
-  filename=req.file.filename;
-}
-  var upftime = newDate.toISOString();
-  console.log(upftime);
-  if( filename != ''){
   sql = 'insert into cer_files (cer_index,origin_name,filename,file_addr,upload_date) values (\'' + req.body.id + '\',\'' + req.file.originalname + '\',\''  + req.file.filename + '\',\''  + filepath+ '\',\'' + upftime + '\')';
   console.log(sql);
   pg2.query(sql, function (result) { });
