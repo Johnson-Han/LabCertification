@@ -9,19 +9,28 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>TMSR Documents 文档管理系统</title>
+    <title>检验检测机构资质认定评审</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <link href="/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="/vendor/morrisjs/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="js/angular.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,11 +38,12 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+  
 
 </head>
 
-<body ng-app="myApp" ng-controller="myCtrl">
-
+<body ng-app="myApp" ng-controller="myCtrl" >
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -45,7 +55,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="">TMSR Documents v2.0</a>
+                <a class="navbar-brand" href="">检验检测机构资质认定评审</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -60,7 +70,7 @@
                             <a href="#">
                                 <div>
                                     <p>
-                                        <strong>LF1 堆物理</strong>
+                                        <strong>概貌</strong>
                                         <span class="pull-right text-muted">100% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
@@ -71,141 +81,11 @@
                                 </div>
                             </a>
                         </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>安全分析</strong>
-                                        <span class="pull-right text-muted">20% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                                            <span class="sr-only">20% Complete</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>堆本体</strong>
-                                        <span class="pull-right text-muted">60% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                            <span class="sr-only">60% Complete (warning)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>熔盐回路</strong>
-                                        <span class="pull-right text-muted">80% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                            <span class="sr-only">80% Complete (danger)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>See All Tasks</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
+                     
                     </ul>
                     <!-- /.dropdown-tasks -->
                 </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-comment fa-fw"></i> New Comment
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>See All Alerts</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-alerts -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
+
             </ul>
             <!-- /.navbar-top-links -->
 
@@ -224,47 +104,31 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="/"><i class="fa fa-dashboard fa-fw"></i>LF1 文件管理</a>
+                            <a href="/"><i class="fa fa-dashboard fa-fw"></i>资质认定管理</a>
                         </li>
                         <li>
-                            <a href=" /lfcontact">
-                                <i class="fa fa-edit fa-fw"></i>工作联系单</a>
+                            <a href=" /org">
+                                <i class="fa fa-sitemap fa-fw"></i>组织架构</a>
                         </li>
                         <li>
-                            <a href="/lf1_note">
-                                <i class="fa fa-edit fa-fw"></i>技术通知单</a>
+                            <a href="/env">
+                                <i class="fa fa-tree fa-fw"></i>环境条件</a>
                         </li>
                         <li>
-                            <a href="/lf1_concept_design"><i class="fa fa-bar-chart-o fa-fw"></i>概念设计文件</a>
+                            <a href="/per"><i class="fa fa-user fa-fw"></i>人员条件</a>
                    
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="/lf1_scheme_design">
-                                <i class="fa fa-bar-chart-o fa-fw"></i>方案设计文件</a>
+                            <a href="/dev">
+                                <i class="fa fa-flask fa-fw"></i>试验仪器</a>
                         
                             <!-- /.nav-second-level -->
                         </li>
-
                         <li>
-                            <a href="lf1_primary"><i class="fa fa-wrench fa-fw"></i>初步设计文件<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li ng-repeat="x in systems">
-                                        <a href="/proto/{{x}}">{{x}}</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-wrench fa-fw"></i>施工图设计文件
-                                <span class="fa arrow"></span>
-                            </a>
-                            <ul class="nav nav-second-level">
-                                <li ng-repeat="x in systems">
-                                    <a href="/const/{{x}}">{{x}}</a>
-                                </li>
-                            </ul>
+                            <a href="/lfcontact">
+                                <i class="fa fa-file fa-fw"></i>文档管理</a>
+                        
                             <!-- /.nav-second-level -->
                         </li>
 
@@ -275,246 +139,188 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-        <!-- Page Content -->
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Error Page </h1>
-                        <br>
-                        <H3>抱歉！您找的页面不存在</H3>
-                    </div>
-                    <!-- /.col-lg-12 -->
+    <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">404 ERROR</h1>
                 </div>
-                <!-- /.row -->
+                <!-- /.col-lg-12 -->
             </div>
-            <!-- /.container-fluid -->
-        </div>
-        <!-- /#page-wrapper -->
+            <!-- /.row -->
+
+
+         </div>
+
+                 
+    </div>
+             
 
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
+      <!-- jQuery -->
+      <script src="/vendor/jquery/jquery.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
-    <script src="/js/angular.min.js"></script> 
+      <!-- Bootstrap Core JavaScript -->
+      <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+  
+      <script src="/vendor/datatables/js/jquery.dataTables.min.js"></script>
+     
+  
+      <!-- Metis Menu Plugin JavaScript -->
+      <script src="/vendor/metisMenu/metisMenu.min.js"></script>
+  
+      <!-- Morris Charts JavaScript -->
+      <script src="/vendor/raphael/raphael.min.js"></script>
+      <script src="/vendor/morrisjs/morris.min.js"></script>
+      <script src="/data/morris-data.js"></script>
+      <script src="/vendor/echarts.min.js"></script>
+      
+  
+  
+      <!-- Custom Theme JavaScript -->
+      <script src="/dist/js/sb-admin-2.js"></script>
+    
+  <!-- <script src="js/angular.min.js"></script>  -->
   <script>
-              
-              
+
+
       var app = angular.module('myApp', []);
       app.controller('myCtrl', function($scope, $http) {   
-      var myUrl = "http://10.10.2.29:3000/data/lf1?callback=JSON_CALLBACK";
-      $http.jsonp(myUrl).success(function(response) {
-          
-          var i=0;
-          systems=[];
-          count=[];
-          submmitted=[];
-          authorized=[];
-          file_sum=0;
-          file_sub=0;
-          response.forEach(function(key){
-      
-           systems[i]=key.systems;
-           count[i]=key.count;
-           submmitted[i]=key.submmitted;
-           authorized[i]=key.authorized;
-           i++;
-           file_sum=file_sum+parseInt(key.count?key.count:0);
-           file_sub=file_sub+parseInt(key.submmitted?key.submmitted:0);
-           
-          });
-          $scope.systems = systems;
-          $scope.authorized=authorized;
-          $scope.submmitted=submmitted;
-          $scope.count=count;
-          $scope.total_num=file_sum;
-          $scope.total_sub=file_sub;
+        $scope.inddd = 'qqq';
+      var myUrl_input = "http://127.0.0.1:3001/data/certification?callback=JSON_CALLBACK";
+      $http.jsonp(myUrl_input).success(function(response){
+        // $scope.input_file=response;
+        var data = new Array();
+        var i=0;
+       
+        response.forEach(function(responseE){
+        // console.log(response);
+            
+        data.push([responseE.index,responseE.sec_lvl3, responseE.standard, responseE.note,responseE.rt,responseE.keys, responseE.files,responseE.files_path]);
+        i++;
+       
+        })
 
-
-          
-
-          // console.log("when");
-      //     console.log(response);
-      var dom = document.getElementById("container");
- 
- var myChart = echarts.init(dom);
- var app = {};
- option = null;
- var posList = [
-'left', 'right', 'top', 'bottom',
-'inside',
-'insideTop', 'insideLeft', 'insideRight', 'insideBottom',
-'insideTopLeft', 'insideTopRight', 'insideBottomLeft', 'insideBottomRight'
- ];
-
- app.configParameters = {
-     rotate: {
-     min: -90,
-     max: 90
-     },
-align: {
-    options: {
-        left: 'left',
-        center: 'center',
-        right: 'right'
-    }
-},
-verticalAlign: {
-    options: {
-        top: 'top',
-        middle: 'middle',
-        bottom: 'bottom'
-    }
-},
-position: {
-    options: echarts.util.reduce(posList, function (map, pos) {
-        map[pos] = pos;
-        return map;
-    }, {})
-},
-distance: {
-    min: 0,
-    max: 100
-}
-};
-
-app.config = {
-rotate: 90,
-align: 'left',
-verticalAlign: 'middle',
-position: 'insideBottom',
-distance: 15,
-onChange: function () {
-    var labelOption = {
-        normal: {
-            rotate: app.config.rotate,
-            align: app.config.align,
-            verticalAlign: app.config.verticalAlign,
-            position: app.config.position,
-            distance: app.config.distance
-        }
-    };
-    myChart.setOption({
-        series: [{
-            label: labelOption
-        }, {
-            label: labelOption
-        }, {
-            label: labelOption
-        }, {
-            label: labelOption
-        }]
-    });
-}
-};
-
-
-var labelOption = {
-normal: {
-    show: true,
-    position: "insideTop",
-
-
-
-
-    formatter: '{c} ',
-    fontSize: 16,
-    rich: {
-        name: {
-            textBorderColor: '#fff'
-        }
-    }
-}
-};
-
-option = {
-color: ['#2677b5','#4da74b', '#a8b4bd' ],
-tooltip: {
-    trigger: 'axis',
-    axisPointer: {
-        type: 'shadow'
-    }
-},
-legend: {
-    data: ['文档总数', '已提交', '已批准']
-},
-toolbox: {
-    show: false,
-    orient: 'vertical',
-    left: 'right',
-    top: 'center',
-    feature: {
-        mark: {show: true},
-        dataView: {show: true, readOnly: false},
-        magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
-        restore: {show: true},
-        saveAsImage: {show: true}
-    }
-},
-calculable: true,
-xAxis: [
-    {
-        type: 'category',
-        zlevel:3,
-        axisTick: {show: true},
-        axisLabel: {interval: 0,rotate:25},
+        $scope.data=data;
+        // console.log(data);
         
-        data: systems
-    }
-],
-yAxis: [
-    {
-        type: 'value',
-        zlevel:3
-    }
-],
-series: [
-    {
-        name: '文档总数',
-        type: 'bar',
 
-        barGap: -1,
-        label: labelOption,
-        data: count
-    },
-    {
-        name: '已提交',
-        type: 'bar',
+            
 
-        label: labelOption,
-        data: submmitted
-    },
+          $('#example').DataTable({
 
-    {
-        name: '已批准',
-        type: 'line',
+                  "paging": false,
+                  // "ordering": false,
+                  //   "info": false,
+                  "language": {
+                      "lengthMenu": "每页 _MENU_ 条记录",
+                      "zeroRecords": "没有找到记录",
+                      "info": "共 _MAX_ 条",
+                      "infoEmpty": "无记录",
+                      "infoFiltered": "(从 _MAX_ 条记录过滤)",
+                      "search": "检索",
 
-        label: labelOption,
-        data: authorized
-    }
-]
-};;
-if (option && typeof option === "object") {
-myChart.setOption(option, true);
-}
-   
-          });		
+                      "paginate": {
+                          "first": "第一页",
+                          "previous": "上一页",
+                          "next": "下一页",
+                          "last": "最后一页"
+                      }
+                  },
+
+                  "data": data,
+                  "columnDefs": [
+                      {
+                          // The `data` parameter refers to the data for the cell (defined by the
+                          // `data` option, which defaults to the column being worked with, in
+                          // this case `data: 0`.
+                          "render": function (data, type, row) {
+                              // return data +' ('+ row[3]+')';
+                              //   console.log(row);
+
+                              return '<a title="' + row[3] + '" >' + data+ ' <br><button id=\'' + row[0] + '\' class="open-dialog pull-right" data-toggle="modal" data-target="#dialog" ><i class="fa fa-edit"></i></button></a>';
+                          },
+
+                          width:"30%",
+                          "targets": 2
+                      },
+                      {
+                          // 文件列表
+                          "render": function (data, type, row) {
+                              var i = 0;
+                              var content = '<ul>';
+                              if (row[4] != null) {
+                                  row[4].forEach(function (e) {
+                                      var content_new = '<li>'  + e + '</li>';
+                                      i++;
+                                      content = content + content_new;
+                                  })
+                                  return content+"</ul>";
+                              }
+                              else return null;
+                          },
+                          width: "30%",
+                          "targets": 4
+                      },
+                      {
+                          // 文件列表
+                          "render": function (data, type, row) {
+                              var i = 0;
+                              var content = '<ul>';
+                              if (row[5] != null) {
+                                  row[5].forEach(function (e) {
+                                      var content_new = '<li>' + e + '</li>';
+                                      i++;
+                                      content = content + content_new;
+                                  })
+                                  return content + "</ul>";
+                              }
+                              else return null;
+                          },
+                          "targets": 5
+                      },
+                        {
+                          // 文件列表
+                          "render": function (data, type, row) {
+                              var i=0;
+                              var content='';
+                              if( row[6] != null){
+                                 row[6].forEach(function(e){
+                                    var content_new='<a href="' + row[7][i] + '" >'+i+': '+ e.substring(14,40) +'</a><br>'; 
+                                    i++;
+                                     content=content+content_new;
+                                 })
+                              return content;}
+                              else return null;
+                          },
+                          "targets": 6
+                      },
+                      { "visible": false, "targets": [3] },
+                      { "visible": false, "targets": [7] }
+                  ]
+
+              });
+          $(document).ready(function () {
+              $('.open-dialog').click(function(){
+                 var id=$(this)[0].attributes.id.value;
+                  var appElement = document.querySelector('[ng-controller=myCtrl]'); 
+                  
+                  angular.element(appElement).scope().inddd=id;
+                  
+                  var $scope= angular.element(appElement).scope();
+                  $scope.$apply();
+              })
+          }); 
+        
+         
+     });    
+})
+    
   
-  
-      });
-
-      
   </script>  
+
+
 </body>
 
 </html>

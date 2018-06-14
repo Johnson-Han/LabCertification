@@ -3,7 +3,7 @@ var router = express.Router();
 var pg1 = require('./pgconn');
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('lfcontact', { title: "TMSR-Documents LF1工作联系单" });
+  res.render('lfcontact', { title: "文档系统" });
 });
 
 router.get('/:post_name', function (req, res, next) {

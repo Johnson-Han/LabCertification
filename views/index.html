@@ -55,7 +55,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="">检验检测结构资质认定评审</a>
+                <a class="navbar-brand" href="">检验检测机构</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -104,28 +104,33 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="/"><i class="fa fa-dashboard fa-fw"></i>资质认定文件管理</a>
+                            <a href="/"><i class="fa fa-dashboard fa-fw"></i>资质认定管理</a>
                         </li>
                         <li>
                             <a href=" /org">
-                                <i class="fa fa-edit fa-fw"></i>组织架构</a>
+                                <i class="fa fa-sitemap fa-fw"></i>组织架构</a>
                         </li>
                         <li>
                             <a href="/env">
-                                <i class="fa fa-edit fa-fw"></i>环境条件</a>
+                                <i class="fa fa-tree fa-fw"></i>环境条件</a>
                         </li>
                         <li>
-                            <a href="/per"><i class="fa fa-bar-chart-o fa-fw"></i>人员条件</a>
+                            <a href="/per"><i class="fa fa-user fa-fw"></i>人员条件</a>
                    
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="/dev">
-                                <i class="fa fa-bar-chart-o fa-fw"></i>试验仪器</a>
+                                <i class="fa fa-flask fa-fw"></i>试验仪器</a>
                         
                             <!-- /.nav-second-level -->
                         </li>
-
+                        <li>
+                            <a href="/lfcontact">
+                                <i class="fa fa-file fa-fw"></i>文档管理</a>
+                        
+                            <!-- /.nav-second-level -->
+                        </li>
 
                     </ul>
                 </div>
@@ -137,18 +142,18 @@
     <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Documents</h1>
+                    <h1 class="page-header">资质认定评审管理</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-2 col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-sitemap fa-5x"></i>
+                                    <i class="fa fa-sitemap fa-3x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div>组织架构</div>
@@ -165,12 +170,12 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-2 col-md-6">
                     <div class="panel panel-green">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-tree fa-5x"></i>
+                                    <i class="fa fa-tree fa-3x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div >环境条件</div>
@@ -188,12 +193,12 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-2 col-md-6">
                     <div class="panel panel-yellow">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-users fa-5x"></i>
+                                    <i class="fa fa-users fa-3x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div>人员条件</div>
@@ -209,12 +214,12 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-2 col-md-6">
                     <div class="panel panel-red">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-flask  fa-5x"></i>
+                                    <i class="fa fa-flask  fa-3x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                 
@@ -223,6 +228,28 @@
                             </div>
                         </div>
                         <a href="/dev">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-files-o  fa-3x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                
+                                    <div>文档系统</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/lfcontact">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -428,7 +455,7 @@
       var app = angular.module('myApp', []);
       app.controller('myCtrl', function($scope, $http) {   
         $scope.inddd = 'qqq';
-      var myUrl_input = "http://10.10.12.251:3001/data/certification?callback=JSON_CALLBACK";
+      var myUrl_input = "http://127.0.0.1:3001/data/certification?callback=JSON_CALLBACK";
       $http.jsonp(myUrl_input).success(function(response){
         // $scope.input_file=response;
         var data = new Array();
