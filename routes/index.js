@@ -111,9 +111,9 @@ router.post('/lf_contract_add', multer({ storage: storage1 }).single('file'), fu
 
 
   console.log(sql);
-  pg2.query(sql, function (result) { });
-  Wurl = '/lfcontact/' + req.body.name;
-  res.redirect(Wurl);
+  // pg2.query(sql, function (result) { });
+  // Wurl = '/lfcontact/' + req.body.name;
+  // res.redirect(Wurl);
 
 })
 
