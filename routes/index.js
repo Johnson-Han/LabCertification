@@ -111,7 +111,7 @@ router.post('/lf_contract_add', multer({ storage: storage1 }).single('file'), fu
 
   sql1 = 'insert into  cer_files (filename,file_addr,upload_date,cer_index,subject) values (\'' + req.file.filename + '\',\'' + filepath + '\',\'' + upftime + '\',\'' + req.body.cer_index + '\',\''+req.body.subject+')';
 
-  console.log(sql1);
+  console.log(sql);
   console.log(sql1);
 
   pg2.query(sql, function (result) { });
