@@ -159,7 +159,6 @@
                                         <th>主题名称(Subject)</th>
                                         <th>创建者(Creator)</th>
                                         <th>创建时间(Date)</th>
-                                        <th>评审(Review)</th>
                                     </tr>
                                 </thead>
 
@@ -214,7 +213,7 @@
                      response.forEach(function (responseE) {
                          // console.log(response);
 
-                         data.push([i, responseE.name, responseE.contact_from, responseE.contact_to, responseE.count]);
+                         data.push([i, responseE.subject, responseE.creator,  responseE.create_date]);
                          i++;
                      })
                      $(document).ready(function () {
