@@ -76,4 +76,95 @@ router.get('/add_new_subject', function (req, res, next) {
   res.render('lfnewsubject', { title: '检验检测机构资质评定审查' });
 });
 
+
+var storage1 = multer.diskStorage({
+  destination: function (req, file, cb) {
+
+    cb(null, process.cwd() + "/public/files/lf1/工作联系单");    // 保存的路径，备注：需要自己创建
+  },
+  filename: function (req, file, cb) {
+    // 将保存文件名设置为 时间戳+字段名 ，比如 1478521468943-技术需求
+    //  filename2=file.originalname;
+    //  filedate=Date.now();
+    //  filename1=filedate+'-'+filename2;
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+
+});
+
+//新建工作联系单
+// var upload = multer({ dest: '/Users/hanlf/gitHub/docs_web/public/files' })
+router.post('/lf_contract_add', multer({ storage: storage1 }).single('file'), function (req, res, next) {
+  console.log(req.body);
+  console.log(req.file);
+  // console.log(process.cwd());
+  var upfdate = Date.now();
+  var newDate = new Date();
+  var localOffset = newDate.getTimezoneOffset() * 60000;
+
+  newDate.setTime(upfdate + localOffset);
+  var filepath = "/files/" + req.file.filename;
+
+  var upftime = newDate.toISOString();
+
+  sql = 'insert into  lab_files (subject,creator,file_addr,create_date,filename,cer_index) values (\'' + req.body.subject + '\',\'' + req.body.creator + '\',\'' + filepath + '\',\''  + upftime + '\',\'' + req.file.filename + '\',\'' + req.body.cer_index + '\')';
+
+
+  console.log(sql);
+  pg2.query(sql, function (result) { });
+  Wurl = '/lfcontact/' + req.body.name;
+  res.redirect(Wurl);
+
+})
+
+
+
+
+
+//补充联系单的添加路由
+router.post('/lf_subject_add', multer({ storage: storage1 }).single('file'), function (req, res, next) {
+  console.log(req.body);
+  console.log(req.file);
+  // console.log(process.cwd());
+  var upfdate = Date.now();
+  var newDate = new Date();
+  var localOffset = newDate.getTimezoneOffset() * 60000;
+
+  newDate.setTime(upfdate + localOffset);
+  var filepath = "/files/lf1/工作联系单/" + req.file.filename;
+
+  var upftime = newDate.toISOString();
+  sql = 'insert into param_requirement (subject,contact_from,contact_to,file_addr,name,re_sign_date,filename,note) values (\'' + req.body.subject + '\',\'' + req.body.contact_from + '\',\'' + req.body.contact_to + '\',\'' + filepath + '\',\'' + req.body.name + '\',\'' + upftime + '\',\'' + req.file.filename + '\',\'' + req.body.note + '\')';
+
+
+  console.log(sql);
+  pg2.query(sql, function (result) { });
+  Wurl = '/lfcontact/' + req.body.name;
+  res.redirect(Wurl);
+
+})
+
+//回复联系单的添加路由
+router.post('/lf_reply_add', multer({ storage: storage1 }).single('file'), function (req, res, next) {
+  console.log(req.body);
+  console.log(req.file);
+  // console.log(process.cwd());
+  var upfdate = Date.now();
+  var newDate = new Date();
+  newDate.setTime(upfdate);
+  var filepath = "/files/lf1/工作联系单/" + req.file.filename;
+  var upftime = newDate.toISOString();
+  sql = 'insert into param_reply (subject,reply_from,file_addr,name,reply_date,filename,note) values (\'' + req.body.subject + '\',\'' + req.body.reply_from + '\',\'' + filepath + '\',\'' + req.body.name + '\',\'' + upftime + '\',\'' + req.file.filename + '\',\'' + req.body.note + '\')';
+
+
+  console.log(sql);
+  pg2.query(sql, function (result) { });
+  Wurl = '/lfcontact/' + req.body.name;
+  res.redirect(Wurl);
+
+})
+
+
+
+
 module.exports = router;
