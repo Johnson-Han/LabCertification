@@ -107,7 +107,7 @@ router.post('/lf_contract_add', multer({ storage: storage1 }).single('file'), fu
 
   var upftime = newDate.toISOString();
 
-  sql = 'insert into  lab_files_subject (subject,creator,create_date) values (\'' + req.body.subject + '\',\'' + req.body.creator + '\',\''   + upftime + '\',\')';
+  sql = 'insert into  lab_files_subject (subject,creator,create_date) values (\'' + req.body.subject + '\',\'' + req.body.creator + '\',\''   + upftime + '\')';
 
   sql1 = 'insert into  cer_files (filename,file_addr,upload_date,cer_index,subject) values (\'' + req.file.filename + '\',\'' + filepath + '\',\'' + upftime + '\',\'' + req.body.cer_index + '\',\''+req.body.subject+')';
 
@@ -163,7 +163,7 @@ router.post('/lf_reply_add', multer({ storage: storage1 }).single('file'), funct
 
   console.log(sql);
   pg2.query(sql, function (result) { });
-  Wurl = '/lfcontact/' + req.body.name;
+  Wurl = '/add_new_subject';
   res.redirect(Wurl);
 
 })
