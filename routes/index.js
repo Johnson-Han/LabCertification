@@ -109,13 +109,13 @@ router.post('/lf_contract_add', multer({ storage: storage1 }).single('file'), fu
 
   sql = 'insert into  lab_files_subject (subject,creator,create_date) values (\'' + req.body.subject + '\',\'' + req.body.creator + '\',\''   + upftime + '\')';
 
-  sql1 = 'insert into  cer_files (filename,file_addr,upload_date,cer_index,subject) values (\'' + req.file.filename + '\',\'' + filepath + '\',\'' + upftime + '\',\'' + req.body.cer_index + '\',\''+req.body.subject+')';
+  sql1 = 'insert into  cer_files (filename,file_addr,upload_date,cer_index,subject) values (\'' + req.file.filename + '\',\'' + filepath + '\',\'' + upftime + '\',\'' + req.body.cer_index + '\',\''+req.body.subject+'\')';
 
   console.log(sql);
   console.log(sql1);
 
-  pg2.query(sql, function (result) { });
-  pg2.query(sql1, function (result) { });
+  pg2.query(sql, function (result) { pg2.query(sql1, function (result) { }); });
+  
   Wurl = '/lfcontact/' + req.body.name;
   res.redirect(Wurl);
 
