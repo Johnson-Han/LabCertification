@@ -40,7 +40,7 @@ router.post('/info_add', multer({ storage: storage3 }).single('file'), function 
   if (req.file != null){
   newDate.setTime(upfdate + localOffset);
   var filepath = "/files/" + req.file.filename;
-  sql = 'insert into cer_files (cer_index,origin_name,filename,file_addr,upload_date) values (\'' + req.body.id + '\',\'' + req.file.originalname + '\',\''  + req.file.filename + '\',\''  + filepath+ '\',\'' + upftime + '\')';
+  sql = 'insert into cer_files (cer_index,origin_name,filename,file_addr,upload_date) values (\'{' + req.body.id + '}\',\'' + req.file.originalname + '\',\''  + req.file.filename + '\',\''  + filepath+ '\',\'' + upftime + '\')';
   console.log(sql);
   pg2.query(sql, function (result) { });
   }
@@ -107,11 +107,15 @@ router.post('/lf_contract_add', multer({ storage: storage1 }).single('file'), fu
 
   var upftime = newDate.toISOString();
 
-  sql = 'insert into  lab_files (subject,creator,file_addr,create_date,filename,cer_index) values (\'' + req.body.subject + '\',\'' + req.body.creator + '\',\'' + filepath + '\',\''  + upftime + '\',\'' + req.file.filename + '\',\'' + req.body.cer_index + '\')';
+  sql = 'insert into  lab_files_subject (subject,creator,create_date) values (\'' + req.body.subject + '\',\'' + req.body.creator + '\',\''   + upftime + '\',\')';
 
+  sql1 = 'insert into  cer_files (filename,file_addr,upload_date,cer_index,subject) values (\'' + req.file.filename + '\',\'' + filepath + '\',\'' + upftime + '\',\'' + req.body.cer_index + '\',\''+req.body.subject+')';
 
-  console.log(sql);
+  console.log(sql1);
+  console.log(sql1);
+
   pg2.query(sql, function (result) { });
+  pg2.query(sql1, function (result) { });
   Wurl = '/lfcontact/' + req.body.name;
   res.redirect(Wurl);
 
