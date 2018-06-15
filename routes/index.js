@@ -80,7 +80,7 @@ router.get('/add_new_subject', function (req, res, next) {
 var storage1 = multer.diskStorage({
   destination: function (req, file, cb) {
 
-    cb(null, process.cwd() + "/public/files/lf1/工作联系单");    // 保存的路径，备注：需要自己创建
+    cb(null, process.cwd() + "/public/files");    // 保存的路径，备注：需要自己创建
   },
   filename: function (req, file, cb) {
     // 将保存文件名设置为 时间戳+字段名 ，比如 1478521468943-技术需求
