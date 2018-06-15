@@ -144,7 +144,8 @@ router.get('/file_subject_name', function (req, res, next) {
   // filelist = getFileList("./public/files/TMSR-LF1工程/接口文件/工作联系单");
   // res.jsonp(filelist);
   // console.log(filelist);
-  sql="select * from  lab_files_subject order by subject;"
+  sql="select * from  lab_files_subject order by subject";
+  console.log(sql);
   process.env.TZ = "Asia/Shanghai";
   pg1.query(sql, function (result) {
   res.jsonp(result.rows);
