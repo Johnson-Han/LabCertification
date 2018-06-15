@@ -285,7 +285,7 @@
                 
 
                 var title = $(document).attr("title");
-                var myUrl2 = 'http://10.10.2.29:3000/data/lf_contact_req/' + title + '?callback=JSON_CALLBACK'
+                var myUrl2 = 'http://10.10.12.251:3000/data/lf_contact_req/' + title + '?callback=JSON_CALLBACK'
                 $http.jsonp(myUrl2).success(function (response) {
                     // var i = 0;
                     // subjects = [];
@@ -312,7 +312,7 @@
 
                 });
            
-                var myUrl2 = 'http://10.10.2.29:3000/data/lf_contact_reply/' + title + '?callback=JSON_CALLBACK'
+                var myUrl2 = 'http://10.10.12.251:3000/data/lf_contact_reply/' + title + '?callback=JSON_CALLBACK'
                 $http.jsonp(myUrl2).success(function (response) {
                     // var i = 0;
                     // subjects = [];

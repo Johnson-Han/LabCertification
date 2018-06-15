@@ -138,7 +138,7 @@ router.get('/lf1_note', function (req, res, next) {
   res.jsonp(filelist);
 });
 
-router.get('/lf1_contact_name', function (req, res, next) {
+router.get('/file_subject_name', function (req, res, next) {
   // fs.readdir("./public/files/TMSR-LF1工程/初步设计/01.设计输入参数",function(err,files){
   // console.log(files);
   // filelist = getFileList("./public/files/TMSR-LF1工程/接口文件/工作联系单");

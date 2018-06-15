@@ -206,8 +206,7 @@
     <script>
         var app = angular.module('myApp', []);
             app.controller('myCtrl', function ($scope, $http) {
-                 var myUrl_note = "http://10.10.2.29:3000/data/lf1_contact_name?callback=JSON_CALLBACK";
-                 var myUrl = "http://10.10.2.29:3000/data/lf1?callback=JSON_CALLBACK";
+                 var myUrl_note = "http://10.10.12.251:3000/data/file_subject_name?callback=JSON_CALLBACK";
 
                  $http.jsonp(myUrl_note).success(function (response) {
                      var data = new Array();
@@ -260,33 +259,7 @@
 
                  });
 
-                $http.jsonp(myUrl).success(function (response) {
-
-                    var i = 0;
-                    systems = [];
-                    count = [];
-                    submmitted = [];
-                    authorized = [];
-                    file_sum = 0;
-                    file_sub = 0;
-                    response.forEach(function (key) {
-
-                        systems[i] = key.systems;
-                        count[i] = key.count;
-                        submmitted[i] = key.submmitted;
-                        authorized[i] = key.authorized;
-                        i++;
-                        file_sum = file_sum + parseInt(key.count ? key.count : 0);
-                        file_sub = file_sub + parseInt(key.submmitted ? key.submmitted : 0);
-
-                    });
-                    $scope.systems = systems;
-                    $scope.authorized = authorized;
-                    $scope.submmitted = submmitted;
-                    $scope.count = count;
-                    $scope.total_num = file_sum;
-                    $scope.total_sub = file_sub;
-                })
+                
         });
     </script>
 
